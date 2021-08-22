@@ -1,0 +1,19 @@
+dotnet tool install -g dotnet-aspnet-codegenerator
+
+Yoksa ve diğer eksik paketleri yükle
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+dotnet aspnet-codegenerator identity -dc MyApp.Models.ApplicationDbContext
+Bu doğru çalışırsa Areas-Identity-Pages-Account altında cshtml ler gelcek
+
+İlgili alanları scaffol etmek için Login Register vs
+dotnet aspnet-codegenerator identity -dc MyApp.Models.ApplicationDbContext –files “Account.Register;Account.Login;Account.Logout”
+
+
+Her şeyi generate ediyor
+dotnet aspnet-codegenerator identity -dc MBlog.Data.ApplicationDbContext
+
+Specific Generate
+dotnet aspnet-codegenerator identity -dc MBlog.Data.ApplicationDbContext --files "Account.Register;Account.Login"
+
+dotnet aspnet-codegenerator identity -dc MBlog.Data.ApplicationDbContext --files "Account.Register;Account.Login"
