@@ -39,7 +39,7 @@
                 @await Component.InvokeAsync("AdminTopbarNav")
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-                    @RenderBody()
+                @RenderBody()
                 <!-- /.container-fluid -->
 
             </div>
@@ -96,5 +96,5 @@
     <script src="~/js/demo/chart-pie-demo.js"></script>
 
 </body>
-
+@RenderSection("scripts", required: false)
 </html>

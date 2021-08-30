@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MBlog.Web.BusinessManagers.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace MBlog.Web.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
-        public IActionResult Index()
+        private readonly IAdminBusinessManagers _adminBusinessManagers;
+
+        public AdminController(IAdminBusinessManagers adminBusinessManagers)
         {
-            return View();
+            _adminBusinessManagers = adminBusinessManagers;
+        }
+        public async Task<IActionResult> Index()
+        {
+            return View(await _adminBusinessManagers.GetAdminDashBoard(User));
         }
     }
 }

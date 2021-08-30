@@ -19,6 +19,8 @@ namespace MBlog.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDefaultServices(Configuration);
+            services.AddCustomServices();
+            services.AddCustomAuthorizaiton();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
